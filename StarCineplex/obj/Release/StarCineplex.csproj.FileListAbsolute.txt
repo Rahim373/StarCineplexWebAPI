@@ -1,0 +1,88 @@
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\csc.exe
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\System.Collections.Immutable.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\System.Reflection.Metadata.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\vbc.exe
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\VBCSCompiler.exe
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\roslyn\VBCSCompiler.exe.config
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\StarCineplex.dll.config
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\StarCineplex.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\StarCineplex.pdb
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\Microsoft.Web.Infrastructure.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\Newtonsoft.Json.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Net.Http.Formatting.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Helpers.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Http.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Http.WebHost.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Mvc.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Razor.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Webpages.Deployment.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Webpages.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Webpages.Razor.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Razor.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Webpages.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Webpages.Deployment.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Webpages.Razor.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Helpers.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Mvc.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\Newtonsoft.Json.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Net.Http.Formatting.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Http.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\System.Web.Http.WebHost.xml
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\obj\Release\StarCineplex.csprojResolveAssemblyReference.cache
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\obj\Release\StarCineplex.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\obj\Release\StarCineplex.pdb
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\HtmlAgilityPack.dll
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\HtmlAgilityPack.pdb
+D:\Programs\ASP.NET\StarCineplex\StarCineplex\bin\HtmlAgilityPack.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\csc.exe
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\System.Collections.Immutable.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\System.Reflection.Metadata.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\vbc.exe
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\VBCSCompiler.exe
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\roslyn\VBCSCompiler.exe.config
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\StarCineplex.dll.config
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\StarCineplex.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\StarCineplex.pdb
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\HtmlAgilityPack.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\Microsoft.Web.Infrastructure.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\Newtonsoft.Json.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Net.Http.Formatting.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Helpers.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Http.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Http.WebHost.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Mvc.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Razor.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Webpages.Deployment.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Webpages.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Webpages.Razor.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\HtmlAgilityPack.pdb
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\HtmlAgilityPack.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Razor.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Webpages.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Webpages.Deployment.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Webpages.Razor.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Helpers.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Mvc.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\Newtonsoft.Json.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Net.Http.Formatting.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Http.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Http.WebHost.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\obj\Release\StarCineplex.csprojResolveAssemblyReference.cache
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\obj\Release\StarCineplex.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\obj\Release\StarCineplex.pdb

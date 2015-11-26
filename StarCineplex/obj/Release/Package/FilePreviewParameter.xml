@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="StarCineplexAPI" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Programs\\ASP\.NET\\StarCineplex\\StarCineplex\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Programs\\ASP\.NET\\StarCineplex\\StarCineplex\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>
