@@ -57,7 +57,7 @@ namespace StarCineplex.Classes
                 expectedMovie.Language = movie.OriginalLanguage;
                 expectedMovie.Country = movie.ProductionCountries[0].Name;
                 expectedMovie.Awards = "";
-                expectedMovie.Poster = "https://image.tmdb.org/t/p/original/" + movie.PosterPath;
+                expectedMovie.Poster = Constants.POSTER_LINK_HOST_PATH + movie.PosterPath;
                 expectedMovie.Metascore = "";
                 expectedMovie.imdbRating = movie.VoteAverage.ToString();
                 expectedMovie.imdbVotes = movie.VoteCount.ToString();

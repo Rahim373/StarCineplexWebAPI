@@ -11,6 +11,7 @@ namespace StarCineplex.Classes
         public static string SHOW_TIME = @"http://www.cineplexbd.com/index.php?visit=schedule/schedules";
 
         public static string MY_DB = @"http://movies.turn-bd.com/api.php?name=";
+        public static string POSTER_LINK_HOST_PATH = @"https://image.tmdb.org/t/p/w300/";
         public static string NOW_SHOWING_PATTERN = @"//*[@id='left_navigation']/div[1]/div[2]";
         public static string COMING_SOON_PATTERN = @"//*[@id='left_navigation']/div[2]/div[2]";
     }
