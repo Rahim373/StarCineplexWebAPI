@@ -86,3 +86,7 @@ E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\System.Web.Http.WebHost.
 E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\obj\Release\StarCineplex.csprojResolveAssemblyReference.cache
 E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\obj\Release\StarCineplex.dll
 E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\obj\Release\StarCineplex.pdb
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\RestSharp.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\TMDbLib.dll
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\RestSharp.xml
+E:\wooZy\Star Cineplex\StarCineplexAPI\StarCineplex\bin\TMDbLib.pdb
