@@ -52,6 +52,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -69,6 +73,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TMDbLib, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TMDbLib.0.8.3\lib\net45\TMDbLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -126,10 +134,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Classes\ComingSoon.cs" />
     <Compile Include="Classes\Constants.cs" />
-    <Compile Include="Classes\MovieHelper.cs" />
-    <Compile Include="Classes\NowShowing.cs" />
+    <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Classes\Movies.cs" />
     <Compile Include="Classes\PatternHelper.cs" />
     <Compile Include="Classes\SendingMail.cs" />
     <Compile Include="Classes\ShowTimeHelper.cs" />
@@ -143,7 +150,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\MailModel.cs" />
-    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\ShowTime.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

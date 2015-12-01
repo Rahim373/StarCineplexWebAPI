@@ -13,7 +13,8 @@ namespace StarCineplex.Controllers
     {
         public HttpResponseMessage GetMovies()
         {
-            List<Movie>  movieList = NowShowing.GetData();
+            Movies movies = new Movies(Constants.NOW_SHOWING_PATTERN);
+            List<MovieModel> movieList = movies.getMovieList();
             var content = JsonConvert.SerializeObject(movieList);
             var response = new HttpResponseMessage() { Content = new StringContent(content) };
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");

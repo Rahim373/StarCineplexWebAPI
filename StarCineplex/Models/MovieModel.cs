@@ -1,6 +1,6 @@
 ﻿namespace StarCineplex.Models
 {
-    public class Movie
+    public class MovieModel
     {
 
         public string Title { get; set; }

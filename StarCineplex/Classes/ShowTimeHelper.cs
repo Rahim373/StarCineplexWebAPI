@@ -28,7 +28,6 @@ namespace StarCineplex.Classes
             return result.ToString();
         }
 
-
         private void GetTable(string webPage)
         {
             HtmlDocument doc = new HtmlDocument();

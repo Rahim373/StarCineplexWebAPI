@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StarCineplex.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,8 @@ namespace StarCineplex.Controllers
         // GET: Default
         public ActionResult Index()
         {
+            ViewBag.NowShowing = Movies.getMovieCountCount(Constants.NOW_SHOWING_PATTERN);
+            ViewBag.ComingSoon = Movies.getMovieCountCount(Constants.COMING_SOON_PATTERN);
             return View();
         }
     }
