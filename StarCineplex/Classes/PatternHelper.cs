@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using System.Text.RegularExpressions;
+using System;
 
 namespace StarCineplex.Classes
 {
@@ -16,12 +17,11 @@ namespace StarCineplex.Classes
             return movieName;
         }
 
-
         public static string GetMovieType(string movieName)
         {
             string pattern1 = @"\(\d{1}d\)\s*";
             string Pattern2 = @"\dd";
-            if(Regex.IsMatch(movieName, pattern1, RegexOptions.IgnoreCase))
+            if (Regex.IsMatch(movieName, pattern1, RegexOptions.IgnoreCase))
             {
                 var matches1 = Regex.Matches(movieName, pattern1, RegexOptions.IgnoreCase);
                 var matches2 = Regex.Matches(matches1[0].ToString(), Pattern2, RegexOptions.IgnoreCase);
@@ -33,59 +33,86 @@ namespace StarCineplex.Classes
             }
         }
 
-
-        public static string FindRatingFromSearchResult(string searchResult)
+        internal static string GetFilterMovieUrl(string innerHtml)
         {
-            string pattern1 = @"value\W>(\d{1}|\d\.\d)<";
-            string pattern2 = @"\d\.\d|\d{1}";
-            if (Regex.IsMatch(searchResult, pattern1))
-            {
-                var result = Regex.Matches(searchResult, pattern1, RegexOptions.IgnoreCase);
-                var finalResult = Regex.Matches(result[0].ToString(), pattern2, RegexOptions.IgnoreCase);
-                return finalResult[0].ToString();
-            }
-            else
-            {
-                return "0";
-            }
-
+            var url = Regex.Matches(innerHtml, @"http.*id=\d*");
+            var link = url[0].ToString();
+            return link;
         }
 
-
-        public static string GetMovieImage(string htmlPage)
+        public static string getPosterUrlFromCineplex(string htmlPage)
         {
-            string pattern1 = @"alt.*Poster.*\s*.*\s*.*";
-            string pattern2 = @"http.*jpg";
-            string PosterLink = "";
-            var firstFilter = Regex.Matches(htmlPage, pattern1);
-            var secondFilter = Regex.Matches(firstFilter[0].ToString(), pattern2);
-            PosterLink = secondFilter[0].ToString();
-            return PosterLink; 
+            var filtered = Regex.Matches(htmlPage, @"test.*http.*(jpg|png|bnp)");
+            var poster = filtered[0].ToString();
+            var filtered2 = Regex.Matches(poster, @"http:.*", RegexOptions.IgnoreCase);
+            return filtered2[0].ToString();
         }
 
-        public static string getMovieNameFromGoogle(string htmlData)
+        public static string getPlotFromCineplex(string htmlPage)
         {
-            var doc = new HtmlDocument();
-            doc.LoadHtml(htmlData);
-            string movieName = "";
-
-            string patterm1 = @"height\S*\salt\S*";
-            var filterd1 = Regex.IsMatch(htmlData, patterm1, RegexOptions.IgnoreCase);
-            if (filterd1)
+            var match1 = Regex.Matches(htmlPage, @"Plot.:\s\s*.*\.", RegexOptions.IgnoreCase);
+            if (match1.Count > 0)
             {
-                string data = Regex.Matches(htmlData, patterm1, RegexOptions.IgnoreCase)[0].ToString();
-                string filteranothertime = Regex.Matches(data, @"[A-Z].*")[0].ToString();
-                movieName = filteranothertime.Replace("\"", ""); 
+                try
+                {
+                    string filtered = match1[0].ToString();
+                    filtered = Regex.Replace(filtered, @"plot.*\s", "", RegexOptions.IgnoreCase);
+                    filtered = Regex.Replace(filtered, @"\s\s+", " ", RegexOptions.IgnoreCase);
+                    filtered = Regex.Replace(filtered, @"\.\.+\s.*>", ".", RegexOptions.IgnoreCase);
+                    return filtered;
+                }
+                catch (Exception e)
+                {
+                    return "";
+                }
             }
-
-            else
-            {
-                movieName = "Bangla";
-            }
-
-            return movieName;
-
+            return "";
         }
 
+        public static string getDirectorFromCineplex(string htmlPage)
+        {
+            var match1 = Regex.Matches(htmlPage, @"Director.*\s\s*..*", RegexOptions.IgnoreCase);
+            if (match1.Count > 0)
+            {
+                try
+                {
+                    string filtered = match1[0].ToString();
+                    filtered = Regex.Replace(filtered, @"director", "", RegexOptions.IgnoreCase);
+                    var match2 = Regex.Matches(filtered, @"\;.*");
+                    var filtered2 = match2[0].ToString();
+                    filtered2 = Regex.Replace(filtered2, @"\;", "", RegexOptions.IgnoreCase);
+                    filtered2 = Regex.Replace(filtered2, @"\s*</td>", "", RegexOptions.IgnoreCase);
+                    return filtered2;
+                }
+                catch (Exception e)
+                {
+                    return "";
+                }
+            }
+            return "";
+        }
+
+        public static string getGenreFromCineplex(string htmlPage)
+        {
+            var match1 = Regex.Matches(htmlPage, @"Genre.*\s\s*..*", RegexOptions.IgnoreCase);
+            if (match1.Count > 0)
+            {
+                try
+                {
+                    string filtered = match1[0].ToString();
+                    filtered = Regex.Replace(filtered, @"Genre", "", RegexOptions.IgnoreCase);
+                    var match2 = Regex.Matches(filtered, @"\;.*");
+                    var filtered2 = match2[0].ToString();
+                    filtered2 = Regex.Replace(filtered2, @"\s*</td>", "", RegexOptions.IgnoreCase);
+                    filtered2 = Regex.Replace(filtered2, @"\;", "", RegexOptions.IgnoreCase);
+                    return filtered2;
+                }
+                catch (Exception e)
+                {
+                    return "";
+                }
+            }
+            return "";
+        }
     }
 }

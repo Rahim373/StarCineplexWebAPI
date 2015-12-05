@@ -8,6 +8,7 @@ namespace StarCineplex.Classes
     public class Movies
     {
         private string pattern;
+
         public Movies(string pattern)
         {
             this.pattern = pattern;
@@ -28,10 +29,13 @@ namespace StarCineplex.Classes
                     {
                         string showType = PatternHelper.GetMovieType(singleNode.InnerText.Trim());
                         string movieName = PatternHelper.GetFilteredMovieName(singleNode.InnerText.Trim());
-                        MovieModel movie = Helper.getSingleMovie(movieName);
-                        
+                        string movieUrl = PatternHelper.GetFilterMovieUrl(singleNode.InnerHtml);
+                        MovieModel movie = Helper.getSingleMovie(movieName, movieUrl);
                         movie.Showtype = showType;
-                        MovieList.Add(movie);
+                        if (movie.Title != null)
+                        {
+                            MovieList.Add(movie);
+                        }
                     }
                 }
                 catch (Exception e)  { }

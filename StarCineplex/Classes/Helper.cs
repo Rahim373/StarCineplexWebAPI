@@ -8,16 +8,17 @@ using TMDbLib.Client;
 using TMDbLib.Objects.General;
 using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.Search;
+using TMDbLib.Objects.Credit;
 
 namespace StarCineplex.Classes
 {
     public class Helper
     {
         // Collect and control over movies
-        public static MovieModel getSingleMovie(string movieName)
+        public static MovieModel getSingleMovie(string movieName, string movieUrl)
         {
             MovieModel movie = getSingleFromTMDB(movieName);
-            if (movie == null) movie = getFromMyDb(movieName);
+            if (movie == null) movie = getFromCineplexUrl(movieName, movieUrl);
             return movie;
         }
 
@@ -33,58 +34,132 @@ namespace StarCineplex.Classes
 
             if(results.Results.Count> 0)
             {
-                int id = results.Results[0].Id;
-                TMDbLib.Objects.Movies.Movie movie = client.GetMovie(id);
-                if (movie.OriginalLanguage.Equals("hi")) return null;
-                List<Genre> genres = movie.Genres;
-                string genre = "";
-                foreach(var item in genres)
+                try
                 {
-                    genre = genre + item.Name + ", ";
-                }
-                string director = "";
+                    int id = results.Results[0].Id;
+                    Movie movie = client.GetMovie(id);
+                    if (movie.OriginalLanguage.Equals("hi")) return null;
+                    List<Genre> genres = movie.Genres;
+                    var credits = client.GetMovieCredits(id);
+                    List<string> credit = getStringFromCrewList(credits);
 
-                expectedMovie.Title = movie.Title;
-                expectedMovie.Year = movie.ReleaseDate.Value.Year.ToString();
-                expectedMovie.Rated = "N/A";
-                expectedMovie.Released = movie.ReleaseDate.Value.Date.ToString();
-                expectedMovie.Runtime = movie.Runtime.ToString() + " Minutes";
-                expectedMovie.Genre = genre;
-                expectedMovie.Director = director;
-                expectedMovie.Writer = "N/A";
-                expectedMovie.Actors = "";
-                expectedMovie.Plot = movie.Overview;
-                expectedMovie.Language = movie.OriginalLanguage;
-                expectedMovie.Country = movie.ProductionCountries[0].Name;
-                expectedMovie.Awards = "";
-                expectedMovie.Poster = Constants.POSTER_LINK_HOST_PATH + movie.PosterPath;
-                expectedMovie.Metascore = "";
-                expectedMovie.imdbRating = movie.VoteAverage.ToString();
-                expectedMovie.imdbVotes = movie.VoteCount.ToString();
-                expectedMovie.imdbID = movie.ImdbId.ToString();
-                expectedMovie.Type = "Movie";
-                expectedMovie.Response = "True";
-                expectedMovie.Showtype = "2D";
+                    expectedMovie.Title = title;
+                    expectedMovie.Year = movie.ReleaseDate.Value.Year.ToString();
+                    expectedMovie.Released = movie.ReleaseDate.Value.Date.ToString();
+                    expectedMovie.Runtime = movie.Runtime.ToString() + " Minutes";
+                    expectedMovie.Genre = getStringFromGenereList(movie.Genres);
+
+                    expectedMovie.Actors = credit[0].ToString();
+
+                    expectedMovie.Director = credit[1].ToString();
+
+                    expectedMovie.Writer = credit[2].ToString();
+
+                    expectedMovie.Plot = movie.Overview;
+                    expectedMovie.Language = movie.OriginalLanguage;
+                    if(movie.ProductionCountries.Count>0) expectedMovie.Country = movie.ProductionCountries[0].Name;
+                    expectedMovie.Poster = Constants.POSTER_LINK_HOST_PATH + movie.PosterPath;
+                    expectedMovie.imdbRating = movie.VoteAverage.ToString();
+                    expectedMovie.imdbVotes = movie.VoteCount.ToString();
+                    expectedMovie.imdbID = movie.ImdbId.ToString();
+                    expectedMovie.Showtype = "2D";
+                    return expectedMovie;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
             }
             else return null;
-            return expectedMovie;
+        }
+
+        private static string getStringFromGenereList(List<Genre> genreList)
+        {
+            string data = "";
+            foreach(Genre item in genreList)
+            {
+                data = data + item.Name.ToString() + ", ";
+            }
+            return getSimpleString(data);
+        }
+
+        private static List<string> getStringFromCrewList(Credits credits)
+        {
+            List<string> credit = new List<string>();
+
+            // Actors
+            string cast = "";
+            if (credits.Cast.Count > 0)
+            {
+                for (int i = 0; i < 4 && i<credits.Cast.Count; i++)
+                {
+                    cast = cast + credits.Cast[i].Name.ToString() + ", ";
+                }
+            }
+            credit.Add(getSimpleString(cast));
+
+
+
+            // Director
+            string director = "";
+            if (credits.Crew.Count > 0)
+            {
+                for (int i = 0; i < credits.Crew.Count; i++)
+                {
+                    if (credits.Crew[i].Job.Equals("Director"))
+                    {
+                        director = director + credits.Crew[i].Name.ToString() + ", ";
+                    }
+                }
+            }
+            credit.Add(getSimpleString(director));
+
+            // Writer
+            string writer = "";
+            if (credits.Crew.Count > 0)
+            {
+                for (int i = 0; i < credits.Crew.Count; i++)
+                {
+                    if (credits.Crew[i].Department.Equals("Writing"))
+                    {
+                        writer = writer + credits.Crew[i].Name.ToString() + ", ";
+                    }
+                }
+            }
+            credit.Add(getSimpleString(writer));
+
+            return credit;
+        }
+
+        private static string getSimpleString(string data)
+        {
+            try
+            {
+                int flag = data.LastIndexOf(", ");
+                data = data.Remove(flag, 2);
+            }catch(Exception e) {}
+            return data;
         }
 
         // This code is to get from my created database
-        public static MovieModel getFromMyDb(string title)
+        public static MovieModel getFromCineplexUrl(string title, string movieUrl)
         {
-            string result;
+            string htmlPage = "";
             using (var client = new WebClient())
             {
-                Uri url = new Uri(Constants.MY_DB + title, UriKind.Absolute);
-                result = client.DownloadString(url);
+                Uri url = new Uri(movieUrl, UriKind.Absolute);
+                htmlPage = client.DownloadString(url);
             }
-            var movie = JsonConvert.DeserializeObject<MovieModel>(result);
-            if(movie.Response == "True")
-            {
-                return movie;
-            }
-            return new MovieModel { Response = "False" };
+            MovieModel movie = new MovieModel();
+
+            movie.Title = title;
+            movie.Poster = PatternHelper.getPosterUrlFromCineplex(htmlPage);
+            movie.Plot = PatternHelper.getPlotFromCineplex(htmlPage);
+            movie.Director = PatternHelper.getDirectorFromCineplex(htmlPage);
+            movie.Genre = PatternHelper.getGenreFromCineplex(htmlPage);
+
+
+            return movie;
         }
 
         // Give html page of the cineplex
